@@ -1,5 +1,8 @@
 import "./Receipt.css";
 import Logo from "./Logo.svg";
+import { v4 as uuid } from 'uuid';
+
+
 // เดี๋ยวทำให้มันมีเวลาในใบเสร็จ
 
 function Receipt(props) {
@@ -12,9 +15,12 @@ function Receipt(props) {
       banks.map((i) => i.name + "=" + i.quantity)
     );
 
+  let filteredBank = banks.filter((i) => i.quantity > 0);
+  if (showlog) console.log(filteredBank);
+
   return (
     <>
-      <div className="text-center mt-3">
+      <div className="text-center mt-3" >
         <div>
           <section className="receipt container-ticket">
             <div className="ticket">
@@ -30,7 +36,7 @@ function Receipt(props) {
                 <p className="bold">P.O BOX. 90420-80100 MSA</p>
                 <p>Date :12/11/2023 4:16:34 pm</p>
                 <p>
-                  Receipt code : เดี๋ยวค่อยใส่ให้มัน random จริงๆ วันหลังละกัน
+                  Receipt code :{uuid()}
                 </p>
               </div>
               <div className="body-ticket">
@@ -41,7 +47,7 @@ function Receipt(props) {
                   </div>
                   <div className="hr-sm"></div>
 
-                  {banks.map((bank) => (
+                  {filteredBank.map((bank) => (
                     <div className="col2" key={bank.name}>
                       <p>{bank.name}</p>
                       <p className="prix">{bank.quantity}</p>
