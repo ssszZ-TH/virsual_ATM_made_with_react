@@ -28,7 +28,7 @@ function Receipt(props) {
                 <p className="x-bold">
                   <img src={Logo} alt="Logo" width={64} />
                   <br />
-                  เงินในบัญชีร้องไห้หมดเเล้ว
+                  ข้าวปั้นรวยมาก
                 </p>
                 <p className="bold">นางสาว บลาๆๆ</p>
                 <p className="bold">Tel: +66 00 000 0000</p>

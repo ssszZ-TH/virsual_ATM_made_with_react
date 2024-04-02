@@ -74,6 +74,7 @@ const Atm = () => {
   // form ถอนเงินเเต่ละ bank
   const [outAmount, setOutAmount] = useState(0);
   const handleOutAmountChange = (e) => {
+    if (e.target.value < 0) e.target.value = Math.abs(e.target.value);
     setOutAmount(e.target.value);
   };
 
@@ -90,7 +91,7 @@ const Atm = () => {
     set_total_money(totalQuantity);
     if (showlog) console.log("เเบงค์ทั้งหมดในตู้", banks);
     if (showlog) console.log("เงินในตู้ทั้งหมด", totalQuantity);
-    console.log(money_obj);
+    if (showlog) console.log(money_obj);
   };
   useEffect(() => {
     update_total_money();
